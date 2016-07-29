@@ -1,0 +1,13 @@
+{
+    "presentation": [
+        {
+            "id": 1,
+            "name": "Multitouch_demo",
+            "bodyclass": "",
+            "slide": [1,2,3,4,5,6,7],
+            "template":["global"],
+            "less":["global", "touchMenu"],
+            "js":["jquery", "hammer.min", "jquery.hammer", "touchMenu", "global"]
+        }
+    ]
+} 

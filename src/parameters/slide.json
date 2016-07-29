@@ -1,0 +1,74 @@
+{
+	"slide": [
+		{
+			"id": 1,
+			"name": "slide_1",
+			"description": "Home",
+			"keymessage": [1],
+			"template": ["home"],
+			"template_ajax": [],
+			"js": ["home"],
+			"less": ["home"]
+		},
+		{
+			"id": 2,
+			"name": "slide_2",
+			"description": "Section 1-1",
+			"keymessage": [2],
+			"template": ["s1-1"],
+			"template_ajax": [],
+			"js": [],
+			"less": []
+		},
+		{
+			"id": 3,
+			"name": "slide_3",
+			"description": "Section 1-2",
+			"keymessage": [3],
+			"template": ["s1-2"],
+			"template_ajax": [],
+			"js": [],
+			"less": []
+		},
+		{
+			"id": 4,
+			"name": "slide_4",
+			"description": "Section 2-1",
+			"keymessage": [2],
+			"template": ["s2-1"],
+			"template_ajax": [],
+			"js": [],
+			"less": []
+		},
+		{
+			"id": 5,
+			"name": "slide_5",
+			"description": "Section 2-2",
+			"keymessage": [2],
+			"template": ["s2-2"],
+			"template_ajax": [],
+			"js": [],
+			"less": []
+		},
+		{
+			"id": 6,
+			"name": "slide_6",
+			"description": "Section 3-1",
+			"keymessage": [2],
+			"template": ["s3-1"],
+			"template_ajax": [],
+			"js": [],
+			"less": []
+		},
+		{
+			"id": 7,
+			"name": "slide_7",
+			"description": "Section 3-2",
+			"keymessage": [2],
+			"template": ["s3-2"],
+			"template_ajax": [],
+			"js": [],
+			"less": []
+		}	
+	]
+}

@@ -1,0 +1,26 @@
+<script>
+	var pathNames = [];
+	<%for(var i=0;i<slide.length;i++){ %>
+		pathNames.push({"id": "<%=slide[i].id%>", "file": "<%=name%>_<%=slide[i].name%>.zip"});
+	<%}%>
+
+</script>
+<%if(typeof(js) != "undefined"  && js.length>0){ %>
+	<%for(var i=0;i<js.length;i++){ %>
+		<script src="res/js/<%=js[i]%>.js" type="text/javascript"></script>
+	<%}%>
+<%}%> 
+<%if(typeof(s.js) != "undefined"  && s.js.length>0){ %>
+	<%for(var i=0;i<s.js.length;i++){ %>
+		<script src="res/js/<%=s.js[i]%>.js" type="text/javascript"></script>
+	<%}%>
+<%}%>
+<script>
+	$(document).ready(function() {
+		$(document).on('touchmove', function(e) {
+			e.preventDefault();
+		});
+	});
+</script>
+</body>
+</html>
