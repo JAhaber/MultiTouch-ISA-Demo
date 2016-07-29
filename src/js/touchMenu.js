@@ -4,9 +4,9 @@ $(document).ready(function(){
 
 var touchMenu = {
 	area: $("body"), // Selector for touch events
-	buttonDiameter: 68,
+	buttonDiameter: 68, //Used for calculating button position - should match css width/height
 	allPointsActive: false, //True when the menu is locked to the screen
-	numTouches: 1, //Number of touches in the menu
+	numTouches: 3, //Number of touches in the menu
 	touchStatus: [], //Status of each finger touch, one element toggles to true whenever a finger touches the screen, and false whenever one is removed
 	init: function(){
 		//Init the home page button on the logo
@@ -64,13 +64,13 @@ var touchMenu = {
 		})
 		//Re-calculate div positions whenever a finger moves
 		.bind("touchmove", function(e) {
-			//if (touchMenu.allPointsActive === false){
+			if (touchMenu.allPointsActive === false){
 			    e.preventDefault(); // prevent page scroll
 
 			    forEachChangedFinger(e, function(e2, id) {
 			        moveBox(id, e2);
 			    });
-			//}
+			}
 		})
 		//Clear the div under any finger that stops touching the page if the menu isn't locked yet
 		.bind("touchend", function(e) {
