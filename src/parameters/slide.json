@@ -67,8 +67,8 @@
 			"keymessage": [2],
 			"template": ["s3-2"],
 			"template_ajax": [],
-			"js": [],
-			"less": []
+			"js": ["s3-2"],
+			"less": ["s3-2"]
 		}	
 	]
 }
