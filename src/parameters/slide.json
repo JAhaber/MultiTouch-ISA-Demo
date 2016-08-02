@@ -37,7 +37,7 @@
 			"keymessage": [2],
 			"template": ["s2-1"],
 			"template_ajax": [],
-			"js": [],
+			"js": ["s2-1"],
 			"less": ["s2-1"]
 		},
 		{
@@ -47,7 +47,7 @@
 			"keymessage": [2],
 			"template": ["s2-2"],
 			"template_ajax": [],
-			"js": [],
+			"js": ["s2-2"],
 			"less": ["s2-2"]
 		},
 		{

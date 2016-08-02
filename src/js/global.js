@@ -24,7 +24,7 @@ var global = {
 
 		$("body").hammer({domEvents:true}).on("tap", ".headline", function(){
 			if($("body").attr("data-slideid") !== "1"){
-				TweenMax.to(this, 1, {opacity: 0, ease: Power4.easeOut});
+				TweenMax.to(this, 1, {opacity: 0, display: "none", ease: Power4.easeOut});
 				TweenMax.to($(".content"), 1, {opacity: 1, ease: Power4.easeIn, onComplete: global.runAnimations});
 			}
 		});

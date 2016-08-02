@@ -1,3 +1,47 @@
 .headline{
 	background-size: 600px auto;
 }
+
+.content{
+	.data{
+		position:absolute;
+		top:261px;
+		left:115px;
+		width:796px;
+		height:391px;
+		&.data-male{
+			background: url('../img/data-male.png') no-repeat left top;
+			background-size: 796px auto;
+		}
+		&.data-female{
+			background: url('../img/data-female.png') no-repeat left top;
+			background-size: 796px auto;
+			opacity:0;
+		}
+	}
+
+	.btn{
+		position:absolute;
+		top:594px;
+		left:248px;
+		width:250px;
+		height:60px;
+		&.btn-male{
+			background: url('../img/btn-male-off.png') no-repeat center center;
+			background-size: 242px auto;
+			&.on{
+				background: url('../img/btn-male-on.png') no-repeat center center;
+				background-size: 242px auto;
+			}
+		}
+		&.btn-female{
+			left:528px;
+			background: url('../img/btn-female-off.png') no-repeat center center;
+			background-size: 242px auto;
+			&.on{
+				background: url('../img/btn-female-on.png') no-repeat center center;
+				background-size: 242px auto;
+			}
+		}
+	}
+}
