@@ -15,6 +15,7 @@
 		left:128px;
 		text-align: center;
 		font-weight: bold;
+		font-family: Arial;
 		&.data-opt1{
 			top:307px;
 		}
@@ -51,5 +52,50 @@
 		&.btn-calc{
 			left:639px;
 		}
+	}
+}
+
+.chart{
+	position:absolute;
+	top: 0;
+	left:0;
+	width:1024px;
+	height:731px;
+	opacity:0;
+	background: url('../img/graph-content.png') no-repeat top 38px center;
+	background-size: 1024px auto;
+
+	.y-axis{
+		position:absolute;
+		text-align:center;
+		left:118px;
+		font-family: Arial;
+		font-size:20px;
+		color:#fff;
+		line-height:20px;
+		height:20px;
+		width: 35px;
+		&[data-axisid="1"]{
+			top:567px;
+		}
+		&[data-axisid="2"]{
+			top:488px;
+		}
+		&[data-axisid="3"]{
+			top:409px;
+		}
+		&[data-axisid="4"]{
+			top:330px;
+		}
+		&[data-axisid="5"]{
+			top:255px;
+		}
+	}
+	canvas{
+		position:absolute;
+		width:700px;
+		height:400px;
+		top:268px;
+		left:162px;
 	}
 }
