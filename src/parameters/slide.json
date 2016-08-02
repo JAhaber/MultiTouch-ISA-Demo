@@ -17,8 +17,8 @@
 			"keymessage": [2],
 			"template": ["s1-1"],
 			"template_ajax": [],
-			"js": [],
-			"less": []
+			"js": ["s1-1"],
+			"less": ["s1-1"]
 		},
 		{
 			"id": 3,
@@ -28,7 +28,7 @@
 			"template": ["s1-2"],
 			"template_ajax": [],
 			"js": [],
-			"less": []
+			"less": ["s1-2"]
 		},
 		{
 			"id": 4,
@@ -38,7 +38,7 @@
 			"template": ["s2-1"],
 			"template_ajax": [],
 			"js": [],
-			"less": []
+			"less": ["s2-1"]
 		},
 		{
 			"id": 5,
@@ -48,7 +48,7 @@
 			"template": ["s2-2"],
 			"template_ajax": [],
 			"js": [],
-			"less": []
+			"less": ["s2-2"]
 		},
 		{
 			"id": 6,
@@ -58,7 +58,7 @@
 			"template": ["s3-1"],
 			"template_ajax": [],
 			"js": [],
-			"less": []
+			"less": ["s3-1"]
 		},
 		{
 			"id": 7,

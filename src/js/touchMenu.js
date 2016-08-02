@@ -8,6 +8,7 @@ var touchMenu = {
 	allPointsActive: false, //True when the menu is locked to the screen
 	numTouches: 3, //Number of touches in the menu
 	touchStatus: [], //Status of each finger touch, one element toggles to true whenever a finger touches the screen, and false whenever one is removed
+	version: "fluid",
 	init: function(){
 		//Init the home page button on the logo
 		$("body .home-btn").hammer().on("tap", function(e){
@@ -58,7 +59,8 @@ var touchMenu = {
 
 			    if (allPointsActive === true){
 			    	sortMenu(e.originalEvent.touches);
-			    	touchMenu.allPointsActive = true;
+			    	if (touchMenu.version === "static")
+			    		touchMenu.allPointsActive = true;
 			    }
 			}
 		})
@@ -76,7 +78,8 @@ var touchMenu = {
 		.bind("touchend", function(e) {
 			if (touchMenu.allPointsActive === false){
 			    forEachChangedFinger(e, function(e2, id) {
-			        delDiv(id);
+			    	if (touchMenu.version === "static" || (touchMenu.version === "fluid" && e.originalEvent.touches.length === 0))
+			       		delDiv(id);
 			    });
 			}
 		})
@@ -144,7 +147,7 @@ var touchMenu = {
 }
 
 function emptyAll(){
-	touchMenu.area.empty();
+	touchMenu.area.find(".finger").remove();
     for (var i = 0; i < touchMenu.touchStatus.length; i++){
     	touchMenu.touchStatus[i] = false;
     }
@@ -200,13 +203,31 @@ function sortMenu(points){
 }
 
 function delDiv(id) {
-    $("#"+id).remove();
-    for (var i = 0; i < touchMenu.touchStatus.length; i++){
-    	if (touchMenu.touchStatus[i] === id){
-		    touchMenu.touchStatus[i] = false;
-		    break;
-    	}
-    }
+	if (touchMenu.version === "static"){
+	    $("#"+id).remove();
+	    for (var i = 0; i < touchMenu.touchStatus.length; i++){
+	    	if (touchMenu.touchStatus[i] === id){
+			    touchMenu.touchStatus[i] = false;
+			    break;
+	    	}
+	    }
+	}
+	else if (touchMenu.version === "fluid"){
+		if ($(".finger").length > 0){
+			touchMenu.allPointsActive = true;
+			setTimeout(function(){
+				$(".finger").addClass("hide");
+			    // $("#"+id).remove();
+			    setTimeout(function(){
+				    $(".finger").remove();
+				    for (var i = 0; i < touchMenu.touchStatus.length; i++){
+				    	touchMenu.touchStatus[i] = false;
+				    }
+				    touchMenu.allPointsActive = false;
+				},500);
+			},500);
+		}
+	}
 }
 
 // move box on screen
