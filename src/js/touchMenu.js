@@ -18,7 +18,7 @@ var touchMenu = {
 		})
 
 		//Event handler for the finger menu items when they are enabled
-		$(".menuClickArea").hammer({domEvents:true}).on("tap", ".finger", function(e){
+		$("body").hammer({domEvents:true}).on("tap", ".finger", function(e){
 			e.stopPropagation();
 			e.preventDefault();
 			touchMenu.goToSlide(this);
@@ -145,7 +145,7 @@ var touchMenu = {
 }
 
 function emptyAll(){
-	touchMenu.area.find(".finger").remove();
+	$("body").find(".finger").remove();
     for (var i = 0; i < touchMenu.touchStatus.length; i++){
     	touchMenu.touchStatus[i] = false;
     }
@@ -168,7 +168,7 @@ function createDiv(id) {
     for (var i = 0; i < touchMenu.touchStatus.length; i++){
     	if (touchMenu.touchStatus[i] === false){
     		var div = $("<div class='finger'></div>");
-		    touchMenu.area.append(div);
+		    $("body").append(div);
 		    div.attr("id", id);
 		    touchMenu.touchStatus[i] = id;
 
