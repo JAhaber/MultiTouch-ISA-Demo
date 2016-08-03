@@ -1,21 +1,25 @@
-<svg class="largeHex">
-  <polygon class="hex" points="" style="fill:#0ad7ef"></polygon>
-</svg>
+<div class="content">
+	<svg class="largeHex">
+	  <polygon class="hex" points="" style="fill:#0ad7ef"></polygon>
+	</svg>
+	<div class="hexMap largeHexMap"></div>
 
-<svg class="middleHex">
-  <defs>
-    <filter id="f3">
-	    <feFlood result="flood" flood-color="#000" flood-opacity="0.3"></feFlood>
-	    <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
-	    <feMorphology in="mask" result="dilated" operator="dilate" radius="1"></feMorphology>
-	    <feGaussianBlur in="dilated" result="blurred" stdDeviation="10"></feGaussianBlur>
-	    <feMerge>
-	        <feMergeNode in="blurred"></feMergeNode>
-	        <feMergeNode in="SourceGraphic"></feMergeNode>
-	    </feMerge>
-	</filter>
-  </defs>
-  <polygon class="hex" points="" style="fill:#8dec6b" filter="url(#f3)"></polygon>
-</svg>
+	<svg class="middleHex">
+	  <defs>
+	    <filter id="f3">
+		    <feFlood result="flood" flood-color="#000" flood-opacity="0.3"></feFlood>
+		    <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+		    <feMorphology in="mask" result="dilated" operator="dilate" radius="1"></feMorphology>
+		    <feGaussianBlur in="dilated" result="blurred" stdDeviation="10"></feGaussianBlur>
+		    <feMerge>
+		        <feMergeNode in="blurred"></feMergeNode>
+		        <feMergeNode in="SourceGraphic"></feMergeNode>
+		    </feMerge>
+		</filter>
+	  </defs>
+	  <polygon class="hex" points="" style="fill:#8dec6b" filter="url(#f3)"></polygon>
+	</svg>
+	<div class="hexMap middleHexMap"></div>
 
-<div class="topHex"></div>
+	<div class="topHex"></div>
+</div>
