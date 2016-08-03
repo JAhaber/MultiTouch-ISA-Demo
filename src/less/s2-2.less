@@ -31,6 +31,7 @@
 		left:186px;
 		width:73px;
 		height:56px;
+		pointer-events: auto;
 		&.btn-opt1{
 			top:292px;
 		}
@@ -46,6 +47,7 @@
 		top:583px;
 		width:245px;
 		height:57px;
+		pointer-events: auto;
 		&.btn-reset{
 			left:143px;
 		}
@@ -94,8 +96,27 @@
 	canvas{
 		position:absolute;
 		width:700px;
-		height:400px;
-		top:268px;
+		height:450px;
+		top:218px;
 		left:162px;
+	}
+	.label{
+		position:absolute;
+		width:114px;
+		height:35px;
+		opacity:0;
+		z-index:5;
+	}
+	.ans1{
+		background: url('../img/ans-1-label.png') no-repeat center center;
+		background-size: 114px auto;
+	}
+	.ans2{
+		background: url('../img/ans-2-label.png') no-repeat center center;
+		background-size: 114px auto;
+	}
+	.ans3{
+		background: url('../img/ans-3-label.png') no-repeat center center;
+		background-size: 114px auto;
 	}
 }

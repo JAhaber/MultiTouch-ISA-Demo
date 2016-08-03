@@ -3,7 +3,7 @@ $(document).ready(function(){
 });
 
 var touchMenu = {
-	area: $("body"), // Selector for touch events
+	area: $(".menuClickArea"), // Selector for touch events
 	buttonDiameter: 68, //Used for calculating button position - should match css width/height
 	allPointsActive: false, //True when the menu is locked to the screen
 	numTouches: 3, //Number of touches in the menu
@@ -18,7 +18,7 @@ var touchMenu = {
 		})
 
 		//Event handler for the finger menu items when they are enabled
-		$("body").hammer({domEvents:true}).on("tap", ".finger", function(e){
+		$(".menuClickArea").hammer({domEvents:true}).on("tap", ".finger", function(e){
 			e.stopPropagation();
 			e.preventDefault();
 			touchMenu.goToSlide(this);
@@ -67,8 +67,6 @@ var touchMenu = {
 		//Re-calculate div positions whenever a finger moves
 		.bind("touchmove", function(e) {
 			if (touchMenu.allPointsActive === false){
-			    e.preventDefault(); // prevent page scroll
-
 			    forEachChangedFinger(e, function(e2, id) {
 			        moveBox(id, e2);
 			    });
