@@ -34,6 +34,9 @@ var global = {
 			case "2":
 				s1_1.chartAnimation();
 				break;
+			case "7":
+				s3_2.animate();
+				break;
 		}
 	},
 	checkSession: function(){

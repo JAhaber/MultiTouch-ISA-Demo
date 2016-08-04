@@ -1,10 +1,6 @@
 <div class="content">
-	<svg class="largeHex">
-	  <polygon class="hex" points="" style="fill:#0ad7ef"></polygon>
-	</svg>
-	<div class="hexMap largeHexMap"></div>
-
-	<svg class="middleHex">
+	<svg class="Hex">
+	  
 	  <defs>
 	    <filter id="f3">
 		    <feFlood result="flood" flood-color="#000" flood-opacity="0.3"></feFlood>
@@ -17,9 +13,12 @@
 		    </feMerge>
 		</filter>
 	  </defs>
-	  <polygon class="hex" points="" style="fill:#8dec6b" filter="url(#f3)"></polygon>
+	  <polygon id="hexLarge" class="hex" points="" style="fill:#0ad7ef"></polygon>
+	  <polygon id="hexMiddle" class="hex" points="" style="fill:#8dec6b" filter="url(#f3)"></polygon>
 	</svg>
-	<div class="hexMap middleHexMap"></div>
 
 	<div class="topHex"></div>
 </div>
+<div class="console1"></div>
+<div class="console2"></div>
+<div class="console3"></div>

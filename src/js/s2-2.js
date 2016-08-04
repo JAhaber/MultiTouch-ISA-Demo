@@ -46,7 +46,7 @@ var s2_2 = {
 	},
 	createGraph: function(scale){
 		s2_2.drawGraph("1", 475, "#5c7cde", scale);
-		s2_2.drawGraph("2", 350, "#8deb6b", scale);
+		s2_2.drawGraph("2", 350, "#b2bb1c", scale);
 		s2_2.drawGraph("3", 225, "#324683", scale);
 	},
 	drawGraph: function(group, offset, clr, scale){
