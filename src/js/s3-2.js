@@ -4,32 +4,86 @@ $(document).ready(function(){
 
 
 var s3_2 = {
-	polys: null,
+	polyLarge: [],
+	polySmall: [],
+	polyCounter: {
+		smX: null,
+		smY: null,
+		lgX: null,
+		lgY: null
+	},
 	init: function(){
-		$(".Hex #hexLarge").attr("points", s3_2.hex_corner(222, 253, 175, 1) + " " + s3_2.hex_corner(222, 253, 175, 2) + " " + s3_2.hex_corner(222, 253, 175, 3) + " " + s3_2.hex_corner(222, 253, 175, 4) + " " + s3_2.hex_corner(222, 253, 175, 5) + " " + s3_2.hex_corner(222, 253, 175, 6));
-		$(".Hex #hexMiddle").attr("points", s3_2.hex_corner(222, 253, 128, 1) + " " + s3_2.hex_corner(222, 253, 128, 2) + " " + s3_2.hex_corner(222, 253, 128, 3) + " " + s3_2.hex_corner(222, 253, 128, 4) + " " + s3_2.hex_corner(222, 253, 128, 5) + " " + s3_2.hex_corner(222, 253, 128, 6));
+		//Create the array of polygon points
+		for (var i = 0; i <= 5; i++ ){
+			s3_2.polyLarge.push(s3_2.hex_corner(222, 253, 175, i));
+			s3_2.polySmall.push(s3_2.hex_corner(222, 253, 128, i));
+		}
+
+		//Draw the large polygon to the canvas
+		var c1 = document.getElementById("hexCanvasLarge").getContext('2d');
+		c1.fillStyle = '#0ad7ef';
+		c1.beginPath();
+		c1.moveTo(s3_2.polyLarge[0].x, s3_2.polyLarge[0].y);
+		for (var i = 1; i <= 5; i++ ){
+			c1.lineTo(s3_2.polyLarge[i].x, s3_2.polyLarge[i].y);
+		}
+		c1.closePath();
+		c1.fill();
+
+		//Draw the small polygon to the canvas
+		var c2 = document.getElementById("hexCanvasSmall").getContext('2d');
+		c2.fillStyle = '#8dec6b';
+		c2.shadowColor = '#777';
+	      c2.shadowBlur = 50;
+	      c2.shadowOffsetX = 0;
+	      c2.shadowOffsetY = 0;
+		c2.beginPath();
+		c2.moveTo(s3_2.polySmall[0].x, s3_2.polySmall[0].y);
+		for (var i = 1; i <= 5; i++ ){
+			c2.lineTo(s3_2.polySmall[i].x, s3_2.polySmall[i].y);
+		}
+		c2.closePath();
+		c2.fill();
 	},
 	animate: function(){
-		s3_2.polys = {
-			polyMiddleX: $(".Hex #hexMiddle")[0].points.getItem(5).x,
-			polyMiddleY: $(".Hex #hexMiddle")[0].points.getItem(5).y,
-			polyLargeX: $(".Hex #hexLarge")[0].points.getItem(4).x, 
-			polyLargeY: $(".Hex #hexLarge")[0].points.getItem(4).y
+		s3_2.polyCounter = {
+			smX: s3_2.polySmall[0].x,
+			smY: s3_2.polySmall[0].y,
+			lgX: s3_2.polyLarge[5].x, 
+			lgY: s3_2.polyLarge[5].y
 		};
-		TweenMax.to(s3_2.polys, 2.5, {polyLargeX: 440, polyLargeY: 127, polyMiddleX: 440, polyMiddleY: 378, delay: 1.5, onUpdate:s3_2.animateGraph, ease: Power4.easeOut});
-		//TweenMax.to(s3_2.polySmall, 2.5, {countX: 440, countY: 378, delay: 1.5, onUpdate:s3_2.animateGraph, onUpdateParams: ["polySmall", ".Hex #hexMiddle", 5], ease: Power4.easeOut});
+		TweenMax.to(s3_2.polyCounter, 2.5, {lgX: 440, lgY: 127, smX: 440, smY: 378, delay: 1, onUpdate:s3_2.animateGraph, ease: Power4.easeOut});
 	},
 	animateGraph: function(){
+		var c = document.getElementById("hexCanvasLarge");
+		var c1 = c.getContext('2d');
+		c1.clearRect(0, 0, c.width, c.height);
+		c1.beginPath();
+		c1.moveTo(s3_2.polyLarge[0].x, s3_2.polyLarge[0].y);
+		for (var i = 1; i <= 5; i++ ){
+			if (i === 5){
+				c1.lineTo(s3_2.polyCounter.lgX, s3_2.polyCounter.lgY);
+			}
+			else
+				c1.lineTo(s3_2.polyLarge[i].x, s3_2.polyLarge[i].y);
+		}
+		c1.closePath();
+		c1.fill();
 
-		$(".Hex #hexMiddle")[0].points.getItem(5).x = s3_2.polys.polyMiddleX;
-		$(".Hex #hexMiddle")[0].points.getItem(5).y = s3_2.polys.polyMiddleY;		
-		$(".Hex #hexLarge")[0].points.getItem(4).x = s3_2.polys.polyLargeX;
-		$(".Hex #hexLarge")[0].points.getItem(4).y = s3_2.polys.polyLargeY;	
+		var c2 = document.getElementById("hexCanvasSmall").getContext('2d');
+		c2.clearRect(0, 0, c.width, c.height);
+		c2.beginPath();
+		c2.moveTo(s3_2.polyCounter.smX, s3_2.polyCounter.smY);
+		for (var i = 1; i <= 5; i++ ){
+				c2.lineTo(s3_2.polySmall[i].x, s3_2.polySmall[i].y);
+		}
+		c2.closePath();
+		c2.fill();
 	},
 	hex_corner: function(centerX, centerY, s, i){
 	    var angle_deg = 60 * i + 30;
 	    var angle_rad = Math.PI / 180 * angle_deg;
-	    return (centerX + s * Math.cos(angle_rad))+","+(centerY + s * Math.sin(angle_rad));
+	    return {x: centerX + s * Math.cos(angle_rad), y:centerY + s * Math.sin(angle_rad)};
 	}
 }
 
