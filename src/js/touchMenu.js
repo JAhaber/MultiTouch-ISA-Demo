@@ -11,12 +11,12 @@ var touchMenu = {
 	touchStatus: [], //Status of each finger touch, one element toggles to true whenever a finger touches the screen, and false whenever one is removed
 	version: "fluid",
 	init: function(){
-		//Init the home page button on the logo
-		if (localStorage.getItem("demoTouchMenuVersion") === "static"){
-			touchMenu.version = "static";
-			touchMenu.getExistingMenuLocation();
-			$(".menuVersionToggle").addClass("static");
+		//Add all the touch states to the array depending on how many touches are allowed in numTouches
+		for (var i = 0; i < touchMenu.numTouches; i++){
+			touchMenu.touchStatus.push(false);
 		}
+
+		//Init the home page button on the logo
 		$("body .home-btn").hammer().on("tap", function(e){
 			e.stopPropagation();
 			e.preventDefault();
@@ -30,9 +30,10 @@ var touchMenu = {
 			touchMenu.goToSlide(this);
 		})
 
-		//Add all the touch states to the array depending on how many touches are allowed in numTouches
-		for (var i = 0; i < touchMenu.numTouches; i++){
-			touchMenu.touchStatus.push(false);
+		if (localStorage.getItem("demoTouchMenuVersion") === "static"){
+			touchMenu.version = "static";
+			touchMenu.getExistingMenuLocation();
+			$(".menuVersionToggle").addClass("static");
 		}
 
 		//Hammer swipeup event to clear the menu when it is locked.
