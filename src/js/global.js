@@ -53,13 +53,6 @@ var global = {
 		//			localStorage.removeItem("demoTouchMenuVersion");
 		// 		}
 		// 	}
-			// else{
-				if (localStorage.getItem("demoTouchMenuVersion") === "static"){
-						touchMenu.version = "static";
-						touchMenu.getExistingMenuLocation();
-						$(".menuVersionToggle").addClass("static");
-					}
-			// }
 
 			
 		// });

@@ -5,6 +5,8 @@ $(document).ready(function(){
 var s2_1 = {
 	init: function(){
 		$("body").find(".preloader.female").attr("src", 'res/img/data-female.png');
+		$("body").find(".preloader.btn-f").attr("src", 'res/img/btn-female-on.png');
+		$("body").find(".preloader.btn-m").attr("src", 'res/img/btn-male-off.png');
 
 		$("body").hammer({domEvents:true}).on("tap", ".btn-male", function(){
 			TweenMax.to($(".data-female"), 0.5, {opacity: 0, ease: Power4.easeOut});

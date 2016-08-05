@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	touchMenu.init();
+	setTimeout(touchMenu.init(), 100);
+
 });
 
 var touchMenu = {
@@ -11,6 +12,11 @@ var touchMenu = {
 	version: "fluid",
 	init: function(){
 		//Init the home page button on the logo
+		if (localStorage.getItem("demoTouchMenuVersion") === "static"){
+			touchMenu.version = "static";
+			touchMenu.getExistingMenuLocation();
+			$(".menuVersionToggle").addClass("static");
+		}
 		$("body .home-btn").hammer().on("tap", function(e){
 			e.stopPropagation();
 			e.preventDefault();
@@ -18,7 +24,7 @@ var touchMenu = {
 		})
 
 		//Event handler for the finger menu items when they are enabled
-		$("body").on("touchstart", ".finger", function(e){
+		$("body").on("touchend", ".finger", function(e){
 			e.stopPropagation();
 			e.preventDefault();
 			touchMenu.goToSlide(this);
@@ -57,7 +63,7 @@ var touchMenu = {
 			    	}
 			    } 
 
-			    if (allPointsActive === true){
+			    if (allPointsActive === true && (e.originalEvent.touches.length === touchMenu.numTouches)){
 			    	sortMenu(e.originalEvent.touches);
 			    	if (touchMenu.version === "static")
 			    		touchMenu.allPointsActive = true;
@@ -136,7 +142,7 @@ var touchMenu = {
 		if (menuStore !== null){
 			for (var i = 0; i < menuStore.length; i++){
 				createDiv(i);
-				$("#"+i).addClass(menuStore[i].class);
+				$("#"+i).addClass(".finger " + menuStore[i].class);
 				$("#"+i).css({"left": menuStore[i].posX, "top": menuStore[i].posY});
 			}
 			touchMenu.allPointsActive = true;
