@@ -45,9 +45,9 @@ var s2_2 = {
 		$(".data-opt" + i).html(s2_2.optVals[i-1].count);
 	},
 	createGraph: function(scale){
-		s2_2.drawGraph("1", 475, "#5c7cde", scale);
-		s2_2.drawGraph("2", 350, "#b2bb1c", scale);
-		s2_2.drawGraph("3", 225, "#324683", scale);
+		s2_2.drawGraph("1", 350, "#ab3f63", scale);
+		s2_2.drawGraph("2", 475, "#9b7a69", scale);
+		s2_2.drawGraph("3", 225, "#b01f5f", scale);
 	},
 	drawGraph: function(group, offset, clr, scale){
 		var verticalBottom = 450;
@@ -67,6 +67,9 @@ var s2_2 = {
 		
 		ctx.clearRect(0, 0, c.width, c.height);
 		ctx.fillStyle = clr;
+		if (group == "1"){
+			ctx.globalAlpha = 0.8;
+		}
 		ctx.shadowColor = '#444';
 	      ctx.shadowBlur = 30;
 	      ctx.shadowOffsetX = 10;

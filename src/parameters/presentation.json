@@ -2,7 +2,7 @@
     "presentation": [
         {
             "id": 1,
-            "name": "Sanofi_Multitouch_demo",
+            "name": "AbbVie_Multitouch_demo",
             "bodyclass": "",
             "slide": [1,2,3,4,5,6,7],
             "template":["global"],

@@ -21,7 +21,11 @@ var s3_2 = {
 
 		//Draw the large polygon to the canvas
 		var c1 = document.getElementById("hexCanvasLarge").getContext('2d');
-		c1.fillStyle = '#0ad7ef';
+		c1.fillStyle = '#b01f5f';
+		c1.shadowColor = '#8b194b';
+	      c1.shadowBlur = 10;
+	      c1.shadowOffsetX = 0;
+	      c1.shadowOffsetY = 0;
 		c1.beginPath();
 		c1.moveTo(s3_2.polyLarge[0].x, s3_2.polyLarge[0].y);
 		for (var i = 1; i <= 5; i++ ){
@@ -32,8 +36,8 @@ var s3_2 = {
 
 		//Draw the small polygon to the canvas
 		var c2 = document.getElementById("hexCanvasSmall").getContext('2d');
-		c2.fillStyle = '#8dec6b';
-		c2.shadowColor = '#777';
+		c2.fillStyle = '#9b7a69';
+		c2.shadowColor = '#8b194b';
 	      c2.shadowBlur = 50;
 	      c2.shadowOffsetX = 0;
 	      c2.shadowOffsetY = 0;
